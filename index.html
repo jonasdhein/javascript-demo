@@ -1,23 +1,53 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Javascript</title>
 </head>
+
 <body>
-    <h3 onclick="mensagem()">Trabalhando com javascript</h3>
-    <h5 onclick="escreverTexto()">Clique aqui para adicionar um texto</h5>
+    <h1>Trabalhando com javascript</h1>
+    <h4>Cálculos</h4>
+    
+    <input id="txtNumero1" type="number" value="">
+    <input id="txtNumero2" type="number" value="">
+    <input type="button" onclick="somar()" value="Somar">
+    <input id="txtSoma" disabled type="number" value="">
+    <span id="lblSoma">Resultado:</span>
     
     <script>
-        function mensagem(){
-            alert('Olá mundo');
-        }
-        function escreverTexto(){
-            var msg = "Mensagem na tela";
-            document.write(msg);
+        function somar() {
+            //getElementById = captura o elemento com o ID respectivo
+            var valor1 = document.getElementById('txtNumero1').value
+            var valor2 = document.getElementById('txtNumero2').value
+
+            //parseInt = devolve um INT e recebe uma STRING
+            var soma = parseInt(valor1) + parseInt(valor2)
+            //alert('SOMA = ' + soma)
+
+            document.getElementById('txtSoma').value = soma
+            document.getElementById('lblSoma').innerText = 'Resultado: ' + soma
+
         }
     </script>
+
+        <script>
+            function teste() {
+                //criação de variáveis em javascript
+                var mensagem = 'Mensagem na tela';
+                var numero = 5;
+                var booleano = false;
+                numero += parseInt('7');
+
+                //teste condicional em javascript
+                if (booleano == false) {
+                    alert('Valor = ' + numero);
+                }
+            }
+        </script>
 </body>
+
 </html>
