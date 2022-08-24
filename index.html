@@ -10,44 +10,78 @@
 
 <body>
     <h1>Trabalhando com javascript</h1>
-    <h4>Cálculos</h4>
-    
+    <h3>Cálculos</h3>
+
     <input id="txtNumero1" type="number" value="">
     <input id="txtNumero2" type="number" value="">
     <input type="button" onclick="somar()" value="Somar">
-    <input id="txtSoma" disabled type="number" value="">
-    <span id="lblSoma">Resultado:</span>
-    
+    <input type="button" onclick="subtrair()" value="Subtrair">
+    <br><br>
+    <input id="txtResultado" disabled type="number" value="">
+    <span id="lblResultado">Resultado:</span>
+
+    <hr>
+    <h3>Tabuada</h3>
+    <input id="txtTabuada" type="number" min="1" max="10" value="">
+    <input type="button" onclick="tabuada()" value="Calcular Tabuada">
+    <br><span id="lblTabuada">Tabuada</span>
+    <hr>
+
     <script>
+        function tabuada() {
+            var numTabuada = document.getElementById('txtTabuada').value;
+            //isNaN = Não é um número
+            //! = contrário
+            if (!isNaN(parseInt(numTabuada))) {
+                //sintaxe do FOR em Javascript
+                var resTabuada = '';
+                for (var i = 0; i <= 10; i++) {
+                    // 0 x 4 = 4
+                    // 1 x 4 = 8 ...
+                    resTabuada += '<b>' + i + 'x' + numTabuada +
+                        '=</b>' + (numTabuada * i) + '<br>';
+                }
+                document.getElementById('lblTabuada').innerHTML = resTabuada;
+            } else {
+                alert('Informe um número válido');
+            }
+        }
+
+        //getElementById = captura o elemento com o ID respectivo
+        var valor1 = document.getElementById('txtNumero1');
+        var valor2 = document.getElementById('txtNumero2');
+
+        function subtrair() {
+            var resultado = parseInt(valor1.value) - parseInt(valor2.value)
+
+            document.getElementById('txtResultado').value = resultado
+            document.getElementById('lblResultado').innerText = 'Resultado: ' + resultado
+
+        }
+
         function somar() {
-            //getElementById = captura o elemento com o ID respectivo
-            var valor1 = document.getElementById('txtNumero1').value
-            var valor2 = document.getElementById('txtNumero2').value
+            var resultado = parseInt(valor1.value) + parseInt(valor2.value)
 
-            //parseInt = devolve um INT e recebe uma STRING
-            var soma = parseInt(valor1) + parseInt(valor2)
-            //alert('SOMA = ' + soma)
-
-            document.getElementById('txtSoma').value = soma
-            document.getElementById('lblSoma').innerText = 'Resultado: ' + soma
+            document.getElementById('txtResultado').value = resultado
+            document.getElementById('lblResultado').innerText = 'Resultado: ' + resultado
 
         }
     </script>
 
-        <script>
-            function teste() {
-                //criação de variáveis em javascript
-                var mensagem = 'Mensagem na tela';
-                var numero = 5;
-                var booleano = false;
-                numero += parseInt('7');
+    <script>
+        function teste() {
+            //criação de variáveis em javascript
+            var mensagem = 'Mensagem na tela';
+            var numero = 5;
+            var booleano = false;
+            numero += parseInt('7');
 
-                //teste condicional em javascript
-                if (booleano == false) {
-                    alert('Valor = ' + numero);
-                }
+            //teste condicional em javascript
+            if (booleano == false) {
+                alert('Valor = ' + numero);
             }
-        </script>
+        }
+    </script>
 </body>
 
 </html>
